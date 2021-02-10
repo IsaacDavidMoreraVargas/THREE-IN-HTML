@@ -4,13 +4,77 @@ var ano = fecha.getFullYear();
 var month = fecha.getUTCMonth() + 1; //months from 1-12
 var day = fecha.getUTCDate();
 
+let index=0;
 let numberChild=0;
-let originalDom1;
-let originalDom2;
-let originalDom3;
-let originalDom4;
+let originalDom1="";
+let originalDom2="";
+let originalDom3="";
+let originalDom4="";
 let flag=0;
 let numberHead=["PRIMERO","SEGUNDO","TERCERO","CUARTO","QUINTO","SEXTO","SETIMO"];
+
+function past()
+{
+   /*
+   if(index>0)
+   {
+       index=index-1;
+   }
+   */
+   index=2;
+   move(index);
+}
+
+function next()
+{
+   /*
+   if(index<3)
+   {
+       index=index+1;
+   }
+   */
+   index=3;
+   move(index);
+}
+
+function move(index)
+{
+    switch(index)
+    {
+        
+        case 0:
+            document.getElementById("inject0").innerHTML = originalDom1+originalDom2 +originalDom3;
+            
+        break;
+        case 1:
+            document.getElementById("inject0").innerHTML =originalDom1+ originalDom2 +originalDom3;
+           
+        break;
+        case 2:
+            document.getElementById("inject0").innerHTML =originalDom1+originalDom2+ originalDom3;
+          
+        break;
+        case 3:
+            if(originalDom4!="")
+            {
+              document.getElementById("inject0").innerHTML =originalDom2+originalDom3+ originalDom4;
+            }else
+            {
+              document.getElementById("inject0").innerHTML =originalDom1+originalDom2+ originalDom3;
+            }
+           
+        break;  
+        case 4:
+            
+        break;
+        case 5:
+        break;
+        case 6:
+        break;
+        case 7:
+        break;
+    }
+}
 
 function showInformation(flagTagi)
 {
@@ -244,25 +308,27 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
     {
         
         case 0:
-            
+            index=0;
             originalDom1=html;
             document.getElementById("inject0").innerHTML = originalDom1;
             
         break;
         case 1:
+            index=1;
             originalDom2=html;
             document.getElementById("inject0").innerHTML =originalDom1+ originalDom2;
            
         break;
         case 2:
+            index=2;
             originalDom3=html;
             document.getElementById("inject0").innerHTML =originalDom1+originalDom2+ originalDom3;
           
         break;
         case 3:
+            index=3;
             originalDom4=html;
-            //document.getElementById("inject1").innerHTML = originalDom4;
-            document.getElementById("inject0").innerHTML =originalDom1+originalDom2+ originalDom4;
+            document.getElementById("inject0").innerHTML =originalDom2+originalDom3+ originalDom4;
         break;  
         case 4:
             
