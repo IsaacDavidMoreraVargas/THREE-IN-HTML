@@ -76,6 +76,7 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
     let number4=0;
     let order="";
     //alert(principalline);
+    
     switch(principalline)
     {
         case 0:
@@ -238,10 +239,12 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                 }
            });
         html +='</div>';
-   
+
     switch(principalline)
     {
+        
         case 0:
+            
             originalDom1=html;
             document.getElementById("inject0").innerHTML = originalDom1;
             
@@ -258,8 +261,8 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
         break;
         case 3:
             originalDom4=html;
-            document.getElementById("inject1").innerHTML = originalDom4;
-        
+            //document.getElementById("inject1").innerHTML = originalDom4;
+            document.getElementById("inject0").innerHTML =originalDom1+originalDom2+ originalDom4;
         break;  
         case 4:
             
