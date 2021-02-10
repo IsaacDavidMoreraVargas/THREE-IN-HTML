@@ -151,7 +151,7 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                                     html +='<p>FECHA NACIMIENTO: '+element["FECHA NACIMIENTO-C"]+" - "+"ESTADO: "+element["ESTADO-C"]+'</p>';
                                     html +='<h4>'+"FECHA MATRIMONIO: "+element["FECHA MATRIMONIO"]+'</h4>';
                                 html+='</div>';
-                                html +='<div id="consultSons'+numberChild+'" class="miniBar2" onclick="pushData('+flag+","+number1+","+number2+","+number3+","+number4+')"><h4 class="informationHeader2" >MOSTRAR HIJOS</h4></div>';
+                                html +='<div id="consultSons'+numberChild+'" class="miniBar2" onclick="pushData('+flag+","+number1+","+number2+","+number3+","+number4+');'+'showInformation('+send+')"><h4 class="informationHeader2" >MOSTRAR HIJOS</h4></div>';
                                 
                             }catch(err){}
                             
@@ -188,7 +188,7 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                                     html +='<h4>'+"FECHA MATRIMONIO: "+element["FECHA MATRIMONIO2"]+'</h4>';
                                 }
                                 html +='</div>'; 
-                                html +='<div id="consultSons'+numberChild+'" class="miniBar2"  onclick="pushData('+flag+","+number1+","+number2+","+number3+","+number4+')"><h4 class="informationHeader2">MOSTRAR HIJOS</h4></div>';
+                                html +='<div id="consultSons'+numberChild+'" class="miniBar2"  onclick="pushData('+flag+","+number1+","+number2+","+number3+","+number4+');'+'showInformation('+send+')"><h4 class="informationHeader2">MOSTRAR HIJOS</h4></div>';
                               
                             
                         }else
@@ -199,9 +199,9 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                                 tagi="information";
                                 send=tagi+numberChild;
                                 html +='<div id="barInformation'+numberChild+'" class="miniBar1" onclick="showInformation('+send+')"><h4 class="informationHeader1">MOSTRAR INFORMACION GENERAL</h4></div>';
-                                        html +='<div id="information'+numberChild+'" class="information">';
-                                        html +='<p> FECHA NACIMIENTO: '+element["FECHA NACIMIENTO-H"]+" - "+"ESTADO: "+element["ESTADO-H"]+'</p>';
-                                        html +='<h4>SIN MATRIMONIOS REGISTRADOS</h4>';
+                                    html +='<div id="'+send+'" class="information">';
+                                    html +='<p> FECHA NACIMIENTO: '+element["FECHA NACIMIENTO-H"]+" - "+"ESTADO: "+element["ESTADO-H"]+'</p>';
+                                    html +='<h4>SIN MATRIMONIOS REGISTRADOS</h4>';
                                 html+='</div>';
                             }catch(err){}
                             
