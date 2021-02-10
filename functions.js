@@ -1,6 +1,9 @@
 
 var fecha = new Date();
 var ano = fecha.getFullYear();
+var month = fecha.getUTCMonth() + 1; //months from 1-12
+var day = fecha.getUTCDate();
+
 let numberChild=0;
 let originalDom1;
 let originalDom2;
@@ -20,6 +23,26 @@ function showInformation(flagTagi)
        flagTagi.style.display = "block";
    }
 
+}
+
+function returnAge(age)
+{
+    let splitAge=age.split("/");
+    let compareDay=parseInt(splitAge[0]);
+    let compareMonth=parseInt(splitAge[1]);
+
+    let result=parseInt(ano)-parseInt(splitAge[2]);
+    if(month<compareMonth)
+    {
+        result=result-1;
+    }else if(month==compareMonth) 
+    {
+        if(day<compareDay)
+        {
+            result=result-1;
+        }
+    }
+    return result;
 }
 
 function chargeData()
@@ -98,8 +121,7 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
             lineTree.HIJOS.forEach(element => 
             {
                 let age=element["FECHA NACIMIENTO-H"];
-                let splitAge=age.split("/");
-                let result=parseInt(ano)-parseInt(splitAge[2]);
+                let result=returnAge(age);
                 
                 if(element.HIJO)
                 {
@@ -114,11 +136,10 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                                 tagi="information";
                                 send=tagi+numberChild;
                                 
-                                html +='<div id="barInformation'+numberChild+'" class="miniBar" onclick="showInformation('+send+')"><h4 id="information" class="informationHeader">MOSTRAR INFORMACION GENERAL</h4></div>';
+                                html +='<div id="barInformation'+numberChild+'" class="miniBar1" onclick="showInformation('+send+')"><h4 class="informationHeader1">MOSTRAR INFORMACION GENERAL</h4></div>';
                                 html +='<div id="'+send+'" class="information">';
                                     age=element["FECHA NACIMIENTO-C"];
-                                    splitAge=age.split("/");
-                                    result=parseInt(ano)-parseInt(splitAge[2]);
+                                    result=returnAge(age);
                                     if(isNaN(result))
                                     {
                                         result=0;
@@ -129,7 +150,7 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                                     html +='<p>FECHA NACIMIENTO: '+element["FECHA NACIMIENTO-C"]+" - "+"ESTADO: "+element["ESTADO-C"]+'</p>';
                                     html +='<h4>'+"FECHA MATRIMONIO: "+element["FECHA MATRIMONIO"]+'</h4>';
                                 html+='</div>';
-                                html +='<div id="consultSons'+numberChild+'" class="miniBar" onclick="pushData('+flag+","+number1+","+number2+","+number3+","+number4+')"><h4>MOSTRAR HIJOS</h4></div>';
+                                html +='<div id="consultSons'+numberChild+'" class="miniBar2" onclick="pushData('+flag+","+number1+","+number2+","+number3+","+number4+')"><h4 class="informationHeader2" >MOSTRAR HIJOS</h4></div>';
                                 
                             }catch(err){}
                             
@@ -139,11 +160,10 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                             tagi="information";
                             send=tagi+numberChild;
 
-                            html +='<div id="barInformation'+numberChild+'" class="miniBar" onclick="showInformation('+send+')"><h4 id="information" class="informationHeader">MOSTRAR INFORMACION GENERAL</h4></div>';
+                            html +='<div id="barInformation'+numberChild+'" class="miniBar1" onclick="showInformation('+send+')"><h4 class="informationHeader1">MOSTRAR INFORMACION GENERAL</h4></div>';
                               html +='<div id="'+send+'" class="information">';
                                 age=element["FECHA NACIMIENTO-C1"];
-                                splitAge=age.split("/");
-                                result=parseInt(ano)-parseInt(splitAge[2]);
+                                result=returnAge(age);
                                 if(isNaN(result))
                                 {
                                     result=0;
@@ -157,8 +177,7 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                                 if(element.CONYUGUE2!=null)
                                 {
                                     age=element["FECHA NACIMIENTO-C2"];
-                                    splitAge=age.split("/");
-                                    result=parseInt(ano)-parseInt(splitAge[2]);
+                                    result=returnAge(age);
                                     if(isNaN(result))
                                     {
                                         result=0;
@@ -168,7 +187,7 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                                     html +='<h4>'+"FECHA MATRIMONIO: "+element["FECHA MATRIMONIO2"]+'</h4>';
                                 }
                                 html +='</div>'; 
-                                html +='<div id="consultSons'+numberChild+'" class="miniBar" onclick="pushData('+flag+","+number1+","+number2+","+number3+","+number4+')"><h4>MOSTRAR HIJOS</h4></div>';
+                                html +='<div id="consultSons'+numberChild+'" class="miniBar2"  onclick="pushData('+flag+","+number1+","+number2+","+number3+","+number4+')"><h4 class="informationHeader2">MOSTRAR HIJOS</h4></div>';
                               
                             
                         }else
@@ -178,7 +197,7 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                             {
                                 tagi="information";
                                 send=tagi+numberChild;
-                                html +='<div id="barInformation'+numberChild+'" class="miniBar" onclick="showInformation('+send+')"><h4 id="information" class="informationHeader">MOSTRAR INFORMACION GENERAL</h4></div>';
+                                html +='<div id="barInformation'+numberChild+'" class="miniBar1" onclick="showInformation('+send+')"><h4 class="informationHeader1">MOSTRAR INFORMACION GENERAL</h4></div>';
                                         html +='<div id="information'+numberChild+'" class="information">';
                                         html +='<p> FECHA NACIMIENTO: '+element["FECHA NACIMIENTO-H"]+" - "+"ESTADO: "+element["ESTADO-H"]+'</p>';
                                         html +='<h4>SIN MATRIMONIOS REGISTRADOS</h4>';

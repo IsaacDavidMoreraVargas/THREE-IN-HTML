@@ -19,7 +19,10 @@ h3
     width: 100%;
     left: 0%;
 }
-
+h4
+{
+    text-align:center;
+}
 p
 {
     margin-left: 0%;
@@ -88,33 +91,52 @@ p
    width: 97%;
    background-color: transparent;
    background-color: white;
+   
 }
-
 .information
 {
     display: none;
     margin: 0%;
     padding: 0%;
 }
-.informationHeader
+.informationHeader1,.informationHeader2
 {
     text-align: left;
+    color: white;
+    padding-top: 2.5%;
 }
-.miniBar
+.informationHeader1
+{
+    margin-left: 10%;
+}
+.informationHeader2
+{
+    margin-left: 31%;
+}
+
+.miniBar1,.miniBar2
 {
     margin: 0%;
     padding: 0%;
-    width: 90%;
-    left: 0%;
-    background-color: #C6DDEB;
     height: 4%;
-    border-bottom: 2px solid lightblue;
-    margin-top: 1%;
-
+    width: 62%;
+    background-color: #1180ff;
+    margin-left: 20%;
+    border-radius: 25px  25px  25px  25px;
+    margin-bottom: 2%;
 }
-.miniBar:hover
+.minibar2
 {
-    width: 95%;
+    width: 62%;
+}
+.miniBar1:hover
+{
+    width: 64%;
+    border-left: 6px solid #33adff;
+}
+.miniBar2:hover
+{
+    width: 64%;
     border-left: 6px solid #33adff;
 }
 #nameSon
