@@ -98,6 +98,10 @@ p
     display: none;
     margin: 0%;
     padding: 0%;
+    background-color:#C6DDEB;
+
+    border: 6px solid lightblue;
+    margin-left: 5%;
 }
 .informationHeader1,.informationHeader2
 {
