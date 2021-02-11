@@ -99,7 +99,7 @@ p
     margin: 0%;
     padding: 0%;
     background-color:#C6DDEB;
-
+    
     border: 6px solid lightblue;
     margin-left: 5%;
 }
@@ -151,12 +151,14 @@ p
     border-top: 25px solid transparent;
 	border-right: 50px solid lightgray;
 	border-bottom: 25px solid transparent;
+    transition: 0.3s;
 } 
 #next:hover
 {
     border-top: 25px solid transparent;
 	border-left: 50px solid lightgray;
 	border-bottom: 25px solid transparent;
+    transition: 0.3s;
 }
 .miniBar1,.miniBar2
 {
@@ -169,20 +171,14 @@ p
     border-radius: 25px  25px  25px  25px;
     margin-bottom: 2%;
 }
-.minibar2
-{
-    width: 62%;
-}
-.miniBar1:hover
+
+.miniBar1:hover,.miniBar2:hover
 {
     width: 64%;
     border-left: 6px solid #33adff;
+    transition: 0.3s;
 }
-.miniBar2:hover
-{
-    width: 64%;
-    border-left: 6px solid #33adff;
-}
+
 #nameSon
 {
     text-align: center;

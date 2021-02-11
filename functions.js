@@ -126,6 +126,7 @@ function chargeData()
     document.getElementById("date2").innerHTML="FECHA NACIMIENTO: "+tree["FECHA NACIMIENTO-M"];
     html='<p> FECHA MATRIMONIO: '+tree["FECHA MATRIMONIO"]+'</p>';
     document.getElementById("date3").innerHTML=html;
+    //principalline=principalline+1;
     pushData(flag,0,0,0);
 } 
 
@@ -133,7 +134,7 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
 {
     document.getElementById("inject1").innerHTML = "";
     let lineTree;
-    let headLine=principalline+1;
+    let headLine=principalline+2;
     let number1=0;
     let number2=0;
     let number3=0;
@@ -188,7 +189,7 @@ function pushData(principalline,firstLine,secondLine,thirdLine,fourline)
                 let age=element["FECHA NACIMIENTO-H"];
                 let result=returnAge(age);
                 
-                if(element.HIJO)
+                if(element.HIJO && element.HIJO!="NO REGISTRADO")
                 {
                     let send=tagi+numberChild;
                     html +='<div id="nameClick">';
